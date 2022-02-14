@@ -2,6 +2,9 @@
 
 learnable encryption手法の，元画像の復元を目的とした攻撃への耐性の評価
 
+## 暗号化画像の生成
+`learnable_encryption_robustness/notebook/` 内の `generate_hoge_dataset.ipynb` を参照．
+
 ## 暗号化手法
 4種類の暗号化．
 各暗号化手法の略称はmaungさんの論文より．
