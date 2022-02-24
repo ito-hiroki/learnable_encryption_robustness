@@ -12,8 +12,6 @@ from tqdm import tqdm
 
 from attack_dataset import get_dataset
 
-# from unet import UNet
-
 
 def one_epoch(model, data_loader, criterion, optimizer=None):
     if optimizer:
@@ -23,10 +21,7 @@ def one_epoch(model, data_loader, criterion, optimizer=None):
 
     losses = 0
     data_num = 0
-    correct_num = 0
     iter_num = 0
-    losses_adv = 0
-    losses_mse = 0
 
     for images, targets in tqdm(data_loader):
         images, targets = images.to(device), targets.to(device)
@@ -62,9 +57,9 @@ if __name__ == "__main__":
     parser.add_argument("--encryption")
     args = parser.parse_args()
 
-    class UNet(nn.Module):
+    class InverseTransformationNetwork(nn.Module):
         def __init__(self):
-            super(UNet, self).__init__()
+            super(InverseTransformationNetwork, self).__init__()
             if args.encryption == "pe":
                 self.main = nn.Sequential(
                     # for PE
@@ -155,8 +150,7 @@ if __name__ == "__main__":
     )
 
     if args.model == "unet":
-        # model = UNet(img_ch=3, output_ch=3).to(device)
-        model = UNet().to(device)
+        model = InverseTransformationNetwork().to(device)
     else:
         raise ValueError(f"model argment is invalid. {args.model}")
 
