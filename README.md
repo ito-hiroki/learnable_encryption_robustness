@@ -18,7 +18,12 @@ learnable encryption手法の，元画像の復元を目的とした攻撃への
 3種類の攻撃手法．
 各攻撃手法の略称はmaungさんの論文より．
 * FR-Attack
-  * 実装は `learnable_encryption_robustness/decrypt_diffkey_basic.m` 参照．
   * オリジナルのリポジトリは[ここ](https://github.com/ahchang98/image-encryption-scheme-attacks)．ファイル読み込み部分を少し修正．
+  * 攻撃は `learnable_encryption_robustness/decrypt_diffkey_basic.m` 参照．
+  * 検証 (SSIMの計算) は `learnable_encryption_robustness/learnable_encryption_robustness/calc_ssim_fr_attack.py` 参照． 
 * GAN-Attack
+  * 攻撃モデルの学習は `learnable_encryption_robustness/learnable_encryption_robustness/gan_attack_train.py` 参照． 
+  * モデルの検証 (SSIMの計算) は `learnable_encryption_robustness/learnable_encryption_robustness/calc_ssim_gan_attacke.py` 参照． 
 * ITN-Attack
+  * 攻撃モデルの学習は `learnable_encryption_robustness/learnable_encryption_robustness/itn_attack_train.py` 参照．
+  * モデルの検証 (SSIMの計算) は `learnable_encryption_robustness/learnable_encryption_robustness/calc_ssim_itn_attack.py` 参照． 
